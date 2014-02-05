@@ -1,0 +1,31 @@
+<% if current_user %>
+  <h2> your Latest Apps</h2>
+  <table style="width: 100%">
+  <tbody>
+      <% @current_user.apps.each do |app| %>
+        <tr>
+          <td><%= link_to app.name, app.version %></td>
+                 
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+ 
+ <% else %>
+  <div class="panel">
+  
+  <h1> Welcome To Plackal Techno Systems Private Limited</h1>
+  
+  <h2> Latest Apps </h2>
+  <% @apps.each do |app| %>
+
+  <p><%= link_to app.name %></p>
+  
+  <% end %>
+
+    <h2>Share your Apps!</h2>
+    <%= link_to "Get started today", new_user_registration_path, :class => "button button-large" %>
+  </div>
+  
+   
+    <% end %>
