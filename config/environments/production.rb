@@ -78,16 +78,19 @@ Promysql::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   
-  ActionMailer::Base.delivery_method = :smtp
-  
-  ActionMailer::Base.smtp_settings = {
-      :enable_starttls_auto => true,
-      :address        => "smtp.gmail.com",
-      :port           => 587,
-      :domain         => "gmail.com",
-      :authentication => :plain,
-      :user_name  => "sailakshmi@plackal.in",
-      :password  => "sailAkshmi2011"
+  config.action_mailer.default_url_options = { :host => 'http://thawing-stream-9105.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+    config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: " http://thawing-stream-9105 .herokuapp.com",
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV["sailakshmi@plackal.in "],
+      password: ENV["sailAkshmi2011"]
   }
+
   
   end
